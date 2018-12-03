@@ -239,21 +239,21 @@ shinyServer(function(input, output) {
     
   })
   
-  temp_mod<-reactive({
+  sp_mod<-reactive({
     
-    mod1 <- rbind("Site_Location" = data1()[2,12],
+    mod2 <- rbind("Site_Location" = data1()[2,12],
                   "Para"= "Specific Conductivity uS/cm",
                   "5%" = round(quantile(data1()[,3],(0.05),na.rm =TRUE),2),
                   "95%"= round(quantile(data1()[,3],na.rm = TRUE,(0.95)),2),
                   "Mean" = round(mean(data1()[,3],na.rm=TRUE),2), 
                   "Std Dev" = round(sd(data1()[,3],na.rm = TRUE),2))
     modtable <- data.frame(col1 = c("Site Location","Parameter","5% Quartile","95% Quartile","Mean","Std Dev"),
-                           col2 = mod1)
+                           col2 = mod2)
     `colnames<-`(modtable,NULL)
     
   })
   
-  output$table2 <- renderTable(temp_mod())
+  output$table2 <- renderTable(sp_mod())
   
   # pH Plot and Table
   
@@ -271,21 +271,21 @@ shinyServer(function(input, output) {
     
   })
   
-  temp_mod<-reactive({
+  pH_mod<-reactive({
     
-    mod1 <- rbind("Site_Location" = data1()[2,12],
-                  "Para"= "Specific Conductivity uS/cm",
+    mod3 <- rbind("Site_Location" = data1()[2,12],
+                  "Para"= "pH",
                   "5%" = round(quantile(data1()[,5],(0.05),na.rm =TRUE),2),
                   "95%"= round(quantile(data1()[,5],na.rm = TRUE,(0.95)),2),
                   "Mean" = round(mean(data1()[,5],na.rm=TRUE),2), 
                   "Std Dev" = round(sd(data1()[,5],na.rm = TRUE),2))
     modtable <- data.frame(col1 = c("Site Location","Parameter","5% Quartile","95% Quartile","Mean","Std Dev"),
-                           col2 = mod1)
+                           col2 = mod3)
     `colnames<-`(modtable,NULL)
     
   })
   
-  output$table3 <- renderTable(temp_mod())
+  output$table3 <- renderTable(pH_mod())
   
   # Turbidity Plot and Table
   
@@ -303,21 +303,21 @@ shinyServer(function(input, output) {
     
   })
   
-  temp_mod<-reactive({
+  turb_mod<-reactive({
     
-    mod1 <- rbind("Site_Location" = data1()[2,12],
+    mod4 <- rbind("Site_Location" = data1()[2,12],
                   "Para"= "Turbidity NTU",
                   "5%" = round(quantile(data1()[,6],(0.05),na.rm =TRUE),2),
                   "95%"= round(quantile(data1()[,6],na.rm = TRUE,(0.95)),2),
                   "Mean" = round(mean(data1()[,6],na.rm=TRUE),2), 
                   "Std Dev" = round(sd(data1()[,6],na.rm = TRUE),2))
     modtable <- data.frame(col1 = c("Site Location","Parameter","5% Quartile","95% Quartile","Mean","Std Dev"),
-                           col2 = mod1)
+                           col2 = mod4)
     `colnames<-`(modtable,NULL)
     
   })
   
-  output$table4 <- renderTable(temp_mod())
+  output$table4 <- renderTable(turb_mod())
   
   # Chlorophyll Plot and Table
   
@@ -335,21 +335,21 @@ shinyServer(function(input, output) {
     
   })
   
-  temp_mod<-reactive({
+  chlor_mod<-reactive({
     
-    mod1 <- rbind("Site_Location" = data1()[2,12],
+    mod5 <- rbind("Site_Location" = data1()[2,12],
                   "Para"= "Chlorophyll RFU",
                   "5%" = round(quantile(data1()[,8],(0.05),na.rm =TRUE),2),
                   "95%"= round(quantile(data1()[,8],na.rm = TRUE,(0.95)),2),
                   "Mean" = round(mean(data1()[,8],na.rm=TRUE),2), 
                   "Std Dev" = round(sd(data1()[,8],na.rm = TRUE),2))
     modtable <- data.frame(col1 = c("Site Location","Parameter","5% Quartile","95% Quartile","Mean","Std Dev"),
-                           col2 = mod1)
+                           col2 = mod5)
     `colnames<-`(modtable,NULL)
     
   })
   
-  output$table5 <- renderTable(temp_mod())
+  output$table5 <- renderTable(chlor_mod())
   
   # DO Plot and Table
   
@@ -367,21 +367,21 @@ shinyServer(function(input, output) {
     
   })
   
-  temp_mod<-reactive({
+  do_mod<-reactive({
     
-    mod1 <- rbind("Site_Location" = data1()[2,12],
+    mod6 <- rbind("Site_Location" = data1()[2,12],
                   "Para"= "Dissovled Oxygen mg/L",
                   "5%" = round(quantile(data1()[,10],(0.05),na.rm =TRUE),2),
                   "95%"= round(quantile(data1()[,10],na.rm = TRUE,(0.95)),2),
                   "Mean" = round(mean(data1()[,10],na.rm=TRUE),2), 
                   "Std Dev" = round(sd(data1()[,10],na.rm = TRUE),2))
     modtable <- data.frame(col1 = c("Site Location","Parameter","5% Quartile","95% Quartile","Mean","Std Dev"),
-                           col2 = mod1)
+                           col2 = mod6)
     `colnames<-`(modtable,NULL)
     
   })
   
-  output$table6 <- renderTable(temp_mod())
+  output$table6 <- renderTable(do_mod())
   
   # Phycocyanin Plot and Table
   
@@ -399,21 +399,21 @@ shinyServer(function(input, output) {
     
   })
   
-  temp_mod<-reactive({
+  phy_mod<-reactive({
     
-    mod1 <- rbind("Site_Location" = data1()[2,12],
+    mod7 <- rbind("Site_Location" = data1()[2,12],
                   "Para"= "Pycocyanin RFU",
                   "5%" = round(quantile(data1()[,11],(0.05),na.rm =TRUE),2),
                   "95%"= round(quantile(data1()[,11],na.rm = TRUE,(0.95)),2),
                   "Mean" = round(mean(data1()[,11],na.rm=TRUE),2), 
                   "Std Dev" = round(sd(data1()[,11],na.rm = TRUE),2))
     modtable <- data.frame(col1 = c("Site Location","Parameter","5% Quartile","95% Quartile","Mean","Std Dev"),
-                           col2 = mod1)
+                           col2 = mod7)
     `colnames<-`(modtable,NULL)
     
   })
   
-  output$table7 <- renderTable(temp_mod())
+  output$table7 <- renderTable(phy_mod())
   
   # Downloadable csv of selected dataset ----
   output$downloadData.csv <- downloadHandler(
